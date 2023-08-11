@@ -20,21 +20,21 @@ client = gspread.authorize(creds)
 
 sheet = client.open('spreadsheet_name').worksheet("worksheet_name")
 
-# Définition de la date de début et fin à récupérer
+# Define start and end dates for data retrieval
 date_start = datetime.today().strftime('%Y-%m-%d')
 date_stop = datetime.today().strftime('%Y-%m-%d')
 
-# Authentification du client 
+# Client authentication
 session = Authenticator(username=os.getenv('USERNAME'),
                         password=os.getenv('PASSWORD'),
 						region=os.getenv('DEPARTMENT'))
 
-# Récupération des opérations en fonction de la date
+# Retrieve operations based on date range
 operations = Operations(session=session,
                         date_start=date_start,
                         date_stop=date_stop)
 
-# Iteration formatage de la date + Envoi sur GSheet
+# Iterate, format date, and send to GSheet
 for index, value in enumerate(operations.list):
     date_obj = datetime.strptime(value['dateOperation'], '%b %d, %Y, %H:%M:%S %p')
     date_str = date_obj.strftime('%m/%y')
