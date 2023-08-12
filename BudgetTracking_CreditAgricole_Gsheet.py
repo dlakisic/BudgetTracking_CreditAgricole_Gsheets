@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 
-from creditagricole_particuliers import Accounts
+from creditagricole_particuliers import Authenticator, Operations
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
