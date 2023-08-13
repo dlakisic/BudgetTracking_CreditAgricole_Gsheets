@@ -1,4 +1,4 @@
-# BudgetTracking_CreditAgricole_Gsheets
+# BudgetTracking_CreditAgricole_Gsheet
 
 Here's the first Python project that I did back in 2020. This repository houses a Python script aimed at collecting diverse banking transactions from an account using the third-party package python-creditagricole-particuliers, developed by <a href="https://github.com/dmachard/python-creditagricole-particuliers" target="_blank">dmachard</a>. The acquired transaction data is then seamlessly integrated into a designated Google Sheets worksheet, which acts as an efficient budget tracking tool. The script makes use of a variety of tools and technologies to accomplish its objectives:
 
