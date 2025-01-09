@@ -2,13 +2,13 @@ service: budget-tracking
 
 provider:
   name: aws
-  runtime: python3.9
-  region: eu-west-1
+  runtime: python3.13
+  region: eu-west-3
   memorySize: 256
   timeout: 30
   environment:
     SPREADSHEET_ID: 'votre_spreadsheet_id'
-    SHEET_NAME: 'Transactions'
+    SHEET_NAME: 'Opérations'
   iamRoleStatements:
     - Effect: Allow
       Action:
