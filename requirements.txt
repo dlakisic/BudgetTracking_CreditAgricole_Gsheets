@@ -1,0 +1,14 @@
+# Production dependencies
+fastapi==0.68.0
+mangum==0.17.0
+pydantic==1.8.2
+boto3==1.26.137
+pandas==1.4.2
+gspread==5.7.0
+oauth2client==4.1.3
+creditagricole_particuliers
+
+# Development dependencies
+pytest==7.4.0
+flake8==6.1.0
+black==23.7.0

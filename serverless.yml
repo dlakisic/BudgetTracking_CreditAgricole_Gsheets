@@ -1,0 +1,33 @@
+service: budget-tracking
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: eu-west-1
+  memorySize: 256
+  timeout: 30
+  environment:
+    SPREADSHEET_ID: 'votre_spreadsheet_id'
+    SHEET_NAME: 'Transactions'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: 
+        - arn:aws:secretsmanager:${aws:region}:${aws:accountId}:secret:google_credentials-*
+        - arn:aws:secretsmanager:${aws:region}:${aws:accountId}:secret:credit_agricole_credentials-*
+
+functions:
+  api:
+    handler: lambda_function.handler
+    events:
+      - http:
+          path: /fetch-transactions
+          method: POST
+
+package:
+  exclude:
+    - node_modules/**
+    - tests/**
+    - .venv/**
+    - BudgetTracking_CreditAgricole_Gsheet.py 
