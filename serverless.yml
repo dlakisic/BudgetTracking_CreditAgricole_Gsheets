@@ -7,7 +7,7 @@ provider:
   memorySize: 256
   timeout: 30
   environment:
-    SPREADSHEET_ID: 'votre_spreadsheet_id'
+    SPREADSHEET_ID: '1UECL5_mPygMtVFn02hZIRdI1ZrydegrT_qPzFaZLVV8'
     SHEET_NAME: 'Opérations'
   iamRoleStatements:
     - Effect: Allow
@@ -26,8 +26,11 @@ functions:
           method: POST
 
 package:
-  exclude:
-    - node_modules/**
-    - tests/**
-    - .venv/**
-    - BudgetTracking_CreditAgricole_Gsheet.py 
+  artifact: package.zip
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    layer:
+      name: python-deps
+      description: Python dependencies 
