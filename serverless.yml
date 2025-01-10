@@ -16,6 +16,8 @@ provider:
       Resource: 
         - arn:aws:secretsmanager:${aws:region}:${aws:accountId}:secret:google_credentials-*
         - arn:aws:secretsmanager:${aws:region}:${aws:accountId}:secret:credit_agricole_credentials-*
+  layers:
+    - arn:aws:lambda:eu-west-3:336392948345:layer:AWSSDKPandas-Python313:1
 
 functions:
   api:
@@ -24,6 +26,8 @@ functions:
       - http:
           path: /fetch-transactions
           method: POST
+    layers:
+      - !Ref PythonRequirementsLambdaLayer
 
 package:
   artifact: package.zip
